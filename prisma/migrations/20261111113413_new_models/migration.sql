@@ -1,0 +1,23 @@
+-- CreateTable
+CREATE TABLE "Cheese" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "nome" TEXT NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "Patty" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "nome" TEXT NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "Burger" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "nome" TEXT NOT NULL,
+    "preco" DECIMAL NOT NULL,
+    "desc" TEXT NOT NULL,
+    "cheeseId" INTEGER NOT NULL,
+    "pattyId" INTEGER NOT NULL,
+    CONSTRAINT "Burger_cheeseId_fkey" FOREIGN KEY ("cheeseId") REFERENCES "Cheese" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "Burger_pattyId_fkey" FOREIGN KEY ("pattyId") REFERENCES "Patty" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);

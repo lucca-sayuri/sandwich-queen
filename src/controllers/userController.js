@@ -1,6 +1,6 @@
-const prisma = require('prisma')
+import { prisma } from "../prisma.js"
 
-async function createUser(req, res) {
+export async function createUser(req, res) {
     try {
         const { nome, email } = req.body
 
@@ -8,8 +8,18 @@ async function createUser(req, res) {
             return res.status(400).json({ erro: "Nome e email são obrigatorios"})
         }
 
-        const newUser = await 
-    } catch {
+        const newUser = await prisma.user.create({
+            data: {
+                nome: nome,
+                email: email
+            }
+        })
 
+        return res.status(201).json(newUser)
+    } catch (erro) {
+        if (erro.code == "P2002") {
+            return res.status(400).json({ erro: 'este email ja esta cadastrado'})
+        }
+        return res.status(500).json({ erro: "erro interno"})
     }
 }
