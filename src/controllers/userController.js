@@ -29,6 +29,7 @@ export async function getUsers(req, res) {
         const users = await prisma.user.findMany()
         return res.status(200).json(users)
     } catch (erro) {
+        console.error("getUsers error:", erro)
         return res.status(500).json({ erro: "erro interno"})
     }
 }

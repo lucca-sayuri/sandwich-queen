@@ -1,0 +1,18 @@
+=== POST /cheeses (create) ===
+{"id":1,"nome":"Cheddar"}
+=== POST /patties (create) ===
+{"id":1,"nome":"Res"}
+=== POST /users (create) ===
+{"id":1,"nome":"TestUser","email":"user1@example.com"}
+=== POST /burgers (create) ===
+{"id":1,"nome":"Cheeseburger","preco":"12.5","desc":"","cheeseId":1,"pattyId":1,"userId":1}
+=== GET /burgers ===
+[{"id":1,"nome":"Cheeseburger","preco":"12.5","desc":"","cheeseId":1,"pattyId":1,"userId":1,"cheese":{"id":1,"nome":"Cheddar"},"patty":{"id":1,"nome":"Res"}}]
+=== GET /burgers/1 ===
+{"id":1,"nome":"Cheeseburger","preco":"12.5","desc":"","cheeseId":1,"pattyId":1,"userId":1,"cheese":{"id":1,"nome":"Cheddar"},"patty":{"id":1,"nome":"Res"}}
+=== PUT /burgers/1 (update) ===
+{"id":1,"nome":"Cheeseburger Atualizado","preco":"13","desc":"","cheeseId":1,"pattyId":1,"userId":1}
+=== DELETE /burgers/1 ===
+
+=== GET /burgers (after delete) ===
+[]

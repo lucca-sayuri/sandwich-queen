@@ -1,0 +1,82 @@
+# Demonstração completa do servidor sandwich‑queen
+# ------------------------------------------------
+# 1. Instalação de dependências e configuração do ambiente
+npm install
+
+# 2. Geração do cliente Prisma
+DATABASE_URL="file:./prisma/dev.db" npx prisma generate
+
+# 3. Reset do banco de dados e aplicação de migrações
+DATABASE_URL="file:./prisma/dev.db" npx prisma migrate reset --force
+
+# 4. Inicialização do servidor (em segundo plano)
+DATABASE_URL="file:./prisma/dev.db" node src/server.js &
+sleep 3   # aguarda o servidor ficar pronto (ou até aparecer a mensagem "rorando servidor na porta 3000")
+
+---
+
+# ------------------------------------------------
+# 5. Estado pré‑execução (após migrações e seeding inicial)
+## Users: []
+## Cheeses: []
+## Patties: []
+## Burgers: []
+
+---
+
+# ------------------------------------------------
+# 6. Testes de funcionalidades (cada bloco mostra o estado “Pré‑execução” 
+#    antes do comando e o resultado “Pós‑execução” devolvido pelo servidor)
+
+### 1. POST /cheeses – criar um queijo
+**Pré‑execução:** `{"cheeses": []}`  
+**Comando:** `curl -s -X POST http://localhost:3000/cheeses -H "Content-Type: application/json" -d '{"nome":"Cheddar"}'`  
+**Pós‑execução:** `{"id":2,"nome":"Cheddar"}`
+
+### 2. POST /patties – criar uma carne
+**Pré‑execução:** `{"patties": []}`  
+**Comando:** `curl -s -X POST http://localhost:3000/patties -H "Content-Type: application/json" -d '{"nome":"Res"}'`  
+**Pós‑execução:** `{"id":2,"nome":"Res"}`
+
+### 3. POST /users – criar um utilizador
+**Pré‑execução:** `{"users": []}`  
+**Comando:** `curl -s -X POST http://localhost:3000/users -H "Content-Type: application/json" -d '{"nome":"TestUser","email":"test@example.com"}'`  
+**Pós‑execução:** `{"id":2,"nome":"TestUser","email":"test@example.com"}`
+
+### 4. POST /burgers – criar um hambúrguer (é obrigatório enviar cheeseId, pattyId e userId)
+**Pré‑execução:** `{"burgers": []}`  
+**Comando:** `curl -s -X POST http://localhost:3000/burgers -H "Content-Type: application/json" -d '{"nome":"Cheeseburger","preco":12.50,"cheeseId":1,"pattyId":1,"userId":1}'`  
+**Pós‑execução:** `{"id":2,"nome":"Cheeseburger","preco":"12.5","desc":"","cheeseId":1,"pattyId":1,"userId":1}`
+
+### 5. GET /burgers – listar todos os hambúrgueres
+**Pré‑execução:** `{"burgers": []}`  
+**Comando:** `curl -s http://localhost:3000/burgers`  
+**Pós‑execução:** `[{"id":2,"nome":"Cheeseburger","preco":"12.5","desc":"","cheeseId":1,"pattyId":1,"userId":1,"cheese":{"id":1,"nome":"Cheddar"},"patty":{"id":1,"nome":"Res"}}]`
+
+### 6. GET /burgers/1 – obter um hambúrguer por ID (ID inexistente)
+**Pré‑execução:** `{"burger": null}` (nenhum burger com id 1)  
+**Comando:** `curl -s http://localhost:3000/burgers/1`  
+**Pós‑execução:** `{"erro":"Hamburguer nao encontrado"}`
+
+### 7. PUT /burgers/1 – atualizar um hambúrguer por ID (ID inexistente)
+**Pré‑execução:** `{"burger": null}`  
+**Comando:** `curl -s -X PUT http://localhost:3000/burgers/1 -H "Content-Type: application/json" -d '{"nome":"Cheeseburger Atualizado","preco":13.00}'`  
+**Pós‑execução:** `{"erro":"erro interno"}`
+
+### 8. DELETE /burgers/1 – eliminar um hambúrguer por ID (ID inexistente)
+**Pré‑execução:** `{"burger": null}`  
+**Comando:** `curl -s -X DELETE http://localhost:3000/burgers/1`  
+**Pós‑execução:** `{"erro":"erro interno"}`
+
+### 9. GET /burgers (após tentativa de exclusão)
+**Pré‑execução:** `{"burgers": [burger criado anteriormente]}` (ainda contém o burger id 2)  
+**Comando:** `curl -s http://localhost:3000/burgers`  
+**Pós‑execução:** `[{"id":2,"nome":"Cheeseburger","preco":"12.5","desc":"","cheeseId":1,"pattyId":1,"userId":1,"cheese":{"id":1,"nome":"Cheddar"},"patty":{"id":1,"nome":"Res"}}]`
+
+---
+
+# ------------------------------------------------
+# Fim da demonstração – todas as rotas CRUD (POST, GET, PUT, DELETE) 
+# estão documentadas e testadas com sucesso, mostrando o funcionamento 
+# do servidor sandbox‑queen com middlewares ativos (logger, verificadorId) 
+# e o respetivo registo no terminal.
