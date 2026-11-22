@@ -1,6 +1,6 @@
 {
   "info": {
-    "name": "sandwich-queen API",
+    "name": "API Sanduíche Queen",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -8,7 +8,7 @@
       "name": "User",
       "item": [
         {
-          "name": "Get all users",
+          "name": "Obter todos os usuários",
           "request": {
             "method": "GET",
             "url": "http://localhost:3000/users",
@@ -22,7 +22,7 @@
           }
         },
         {
-          "name": "Create user",
+          "name": "Criar usuário",
           "request": {
             "method": "POST",
             "url": "http://localhost:3000/users",
@@ -34,14 +34,14 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\"nome\":\"Joao Silva\",\"email\":\"joao@example.com\"}",
+              "raw": "{\"nome\":\"João Silva\",\"email\":\"joao@example.com\"}",
               "format": "json"
             },
             "response": []
           }
         },
         {
-          "name": "Get user by ID",
+          "name": "Obter usuário por ID",
           "request": {
             "method": "GET",
             "url": "http://localhost:3000/users/1",
@@ -55,7 +55,7 @@
           }
         },
         {
-          "name": "Update user",
+          "name": "Atualizar usuário",
           "request": {
             "method": "PUT",
             "url": "http://localhost:3000/users/1",
@@ -67,14 +67,14 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\"nome\":\"Joao Silva Atualizado\",\"email\":\"joao.atualizado@example.com\"}",
+              "raw": "{\"nome\":\"João Silva Atualizado\",\"email\":\"joao.atualizado@example.com\"}",
               "format": "json"
             },
             "response": []
           }
         },
         {
-          "name": "Delete user",
+          "name": "Deletar usuário",
           "request": {
             "method": "DELETE",
             "url": "http://localhost:3000/users/1",
@@ -90,10 +90,10 @@
       ]
     },
     {
-      "name": "Cheese",
+      "name": "Queijo",
       "item": [
         {
-          "name": "Get all cheeses",
+          "name": "Obter todos os queijos",
           "request": {
             "method": "GET",
             "url": "http://localhost:3000/cheeses",
@@ -107,7 +107,7 @@
           }
         },
         {
-          "name": "Create cheese",
+          "name": "Criar queijo",
           "request": {
             "method": "POST",
             "url": "http://localhost:3000/cheeses",
@@ -119,14 +119,14 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\"nome\":\"Mozzarella\"}",
+              "raw": "{\"nome\":\"Muçarela\"}",
               "format": "json"
             },
             "response": []
           }
         },
         {
-          "name": "Get cheese by ID",
+          "name": "Obter queijo por ID",
           "request": {
             "method": "GET",
             "url": "http://localhost:3000/cheeses/1",
@@ -140,7 +140,7 @@
           }
         },
         {
-          "name": "Update cheese",
+          "name": "Atualizar queijo",
           "request": {
             "method": "PUT",
             "url": "http://localhost:3000/cheeses/1",
@@ -152,14 +152,14 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\"nome\"=\"Cheddar\"}",
+              "raw": "{\"nome\":\"Cheddar\"}",
               "format": "json"
             },
             "response": []
           }
         },
         {
-          "name": "Delete cheese",
+          "name": "Deletar queijo",
           "request": {
             "method": "DELETE",
             "url": "http://localhost:3000/cheeses/1",
@@ -175,10 +175,10 @@
       ]
     },
     {
-      "name": "Patty",
+      "name": "Bifana",
       "item": [
         {
-          "name": "Get all patties",
+          "name": "Obter todas as bifanas",
           "request": {
             "method": "GET",
             "url": "http://localhost:3000/patties",
@@ -192,7 +192,7 @@
           }
         },
         {
-          "name": "Create patty",
+          "name": "Criar bifana",
           "request": {
             "method": "POST",
             "url": "http://localhost:3000/patties",
@@ -204,14 +204,14 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\"nome\":\"Beef\"}",
+              "raw": "{\"nome\":\"Bovina\"}",
               "format": "json"
             },
             "response": []
           }
         },
         {
-          "name": "Get patty by ID",
+          "name": "Obter bifana por ID",
           "request": {
             "method": "GET",
             "url": "http://localhost:3000/patties/1",
@@ -225,7 +225,7 @@
           }
         },
         {
-          "name": "Update patty",
+          "name": "Atualizar bifana",
           "request": {
             "method": "PUT",
             "url": "http://localhost:3000/patties/1",
@@ -237,14 +237,14 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\"nome\":\"Beef Cooked\"}",
+              "raw": "{\"nome\":\"Bovina Preparada\"}",
               "format": "json"
             },
             "response": []
           }
         },
         {
-          "name": "Delete patty",
+          "name": "Deletar bifana",
           "request": {
             "method": "DELETE",
             "url": "http://localhost:3000/patties/1",
@@ -260,10 +260,10 @@
       ]
     },
     {
-      "name": "Burger",
+      "name": "Hambúrguer",
       "item": [
         {
-          "name": "Get all burgers",
+          "name": "Obter todos os hambúrgueres",
           "request": {
             "method": "GET",
             "url": "http://localhost:3000/burgers",
@@ -277,7 +277,7 @@
           }
         },
         {
-          "name": "Create burger",
+          "name": "Criar hambúrguer",
           "request": {
             "method": "POST",
             "url": "http://localhost:3000/burgers",
@@ -289,14 +289,14 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\"nome\":\"Cheeseburger\",\"preco\":12.50,\"desc\":\"Delicious cheeseburger\"}",
+              "raw": "{\"nome\":\"Cheeseburger\",\"preco\":12.50,\"desc\":\"Delicioso cheeseburger\"}",
               "format": "json"
             },
             "response": []
           }
         },
         {
-          "name": "Get burger by ID",
+          "name": "Obter hambúrguer por ID",
           "request": {
             "method": "GET",
             "url": "http://localhost:3000/burgers/1",
@@ -310,7 +310,7 @@
           }
         },
         {
-          "name": "Update burger",
+          "name": "Atualizar hambúrguer",
           "request": {
             "method": "PUT",
             "url": "http://localhost:3000/burgers/1",
@@ -322,14 +322,14 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\"nome\":\"Cheeseburger Atualizado\",\"preco\":13.00\"}",
+              "raw": "{\"nome\":\"Cheeseburger Atualizado\",\"preco\":13.00}",
               "format": "json"
             },
             "response": []
           }
         },
         {
-          "name": "Delete burger",
+          "name": "Deletar hambúrguer",
           "request": {
             "method": "DELETE",
             "url": "http://localhost:3000/burgers/1",

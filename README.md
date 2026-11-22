@@ -1,168 +1,167 @@
-# Sandwich Queen API
+# API Sanduíche Queen
 
-A Node.js + Express + Prisma backend for managing a sandwich shop inventory.
-This project provides CRUD endpoints for **User**, **Cheese**, **Patty**, and **Burger** entities,
-with 1:N relationships (User → Burger) and full middleware support.
+Um backend Node.js + Express + Prisma para gerenciar o inventário de uma lanchonete.
+Este projeto fornece endpoints CRUD para as entidades **User**, **Queijo**, **Bifana** e **Hambúrguer**, com relacionamentos 1:N (User → Hambúrguer) e suporte completo a middlewares.
 
-## Table of Contents
+## Índice
 
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-- [Environment Variables](#environment-variables)
-- [Available Scripts](#available-scripts)
-- [API Endpoints](#api-endpoints)
-  - [User](#user)
-  - [Cheese](#cheese)
-  - [Patty](#patty)
-  - [Burger](#burger)
-- [Middlewares](#middlewares)
-- [Postman Collection](#postman-collection)
-- [Git & Deployment](#git--deployment)
+- [Pré-requisitos](#pré-requisitos)
+- [Começando](#começando)
+- [Variáveis de Ambiente](#variáveis-de-ambiente)
+- [Scripts Disponíveis](#scripts-disponíveis)
+- [Endpoints da API](#endpoints-da-api)
+  - [User](#user-1)
+  - [Queijo](#queijo)
+  - [Bifana](#bifana)
+  - [Hambúrguer](#hambúrguer)
+- [Middlewares](#middlewares-1)
+- [Coleção Postman](#coleção-postman)
+- [Git & Deploy](#git--deploy)
 
-## Prerequisites
+## Pré-requisitos
 
 - Node.js (>=14)
-- npm or yarn
-- SQLite (comes bundled with Prisma)
+- npm ou yarn
+- SQLite (vem incluso com o Prisma)
 
-## Getting Started
+## Começando
 
-1. **Install dependencies**
+1. **Instalar dependências**
 
    ```bash
    npm install
-   # or
+   # ou
    yarn install
    ```
 
-2. **Generate Prisma Client**
+2. **Gerar cliente Prisma**
 
    ```bash
    npx prisma generate
    ```
 
-3. **Run migrations (first time)**
+3. **Rodar migrações (primeira vez)**
 
    ```bash
    npx prisma migrate dev --name init
    ```
 
-4. **Start the server**
+4. **Iniciar o servidor**
 
    ```bash
    npm run dev
-   # or
+   # ou
    node src/server.js
    ```
 
-The server will listen on `http://localhost:3000` by default.
+O servidor ficará disponível em `http://localhost:3000` por padrão.
 
-## Environment Variables
+## Variáveis de Ambiente
 
-Copy `.env.example` if available, otherwise set the following:
+Caso não tenha um arquivo `.env.example`, defina a seguinte variável:
 
 ```
 DATABASE_URL="file:./prisma/dev.db"
 ```
 
-Adjust the path to your SQLite database file.
+Ajuste o caminho para o arquivo SQLite, se necessário.
 
-## API Endpoints
+## Endpoints da API
 
-All endpoints are prefixed with `/api/` implicitly via the route files.
+Todos os endpoints estão implicitamente prefixados com `/api/` através dos arquivos de rota.
 
 ### User
 
-| Method | Endpoint          | Description               |
-|--------|-------------------|---------------------------|
-| `GET`  | `/users`          | List all users            |
-| `POST` | `/users`          | Create a new user         |
-| `GET`  | `/users/:id`      | Get a user by ID          |
-| `PUT`  | `/users/:id`      | Update a user by ID       |
-| `DELETE` | `/users/:id`    | Delete a user by ID       |
+| Método | Endpoint          | Descrição                |
+|--------|-------------------|--------------------------|
+| `GET`  | `/users`          | Listar todos os users    |
+| `POST` | `/users`          | Criar um novo user       |
+| `GET`  | `/users/:id`      | Obter um user por ID     |
+| `PUT`  | `/users/:id`      | Atualizar um user por ID |
+| `DELETE` | `/users/:id`    | Deletar um user por ID   |
 
-**Create user body:**
+**Corpo da criação (POST):**
 ```json
-{"nome":"John Doe","email":"john@example.com"}
+{"nome":"João Silva","email":"joao@example.com"}
 ```
 
-### Cheese
+### Queijo
 
-| Method | Endpoint          | Description        |
-|--------|-------------------|--------------------|
-| `GET`  | `/cheeses`        | List all cheeses   |
-| `POST` | `/cheeses`        | Create a cheese    |
-| `GET`  | `/cheeses/:id`    | Get cheese by ID   |
-| `PUT`  | `/cheeses/:id`    | Update cheese      |
-| `DELETE` | `/cheeses/:id`  | Delete cheese      |
+| Método | Endpoint          | Descrição        |
+|--------|-------------------|------------------|
+| `GET`  | `/cheeses`        | Listar todos os queijos |
+| `POST` | `/cheeses`        | Criar um queijo |
+| `GET`  | `/cheeses/:id`    | Obter queijo por ID |
+| `PUT`  | `/cheeses/:id`    | Atualizar queijo |
+| `DELETE` | `/cheeses/:id`  | Deletar queijo |
 
-**Create cheese body:**
+**Corpo da criação (POST):**
 ```json
-{"nome":"Cheddar"}
+{"nome":"Muçarela"}
 ```
 
-### Patty
+### Bifana (Patty)
 
-| Method | Endpoint          | Description        |
-|--------|-------------------|--------------------|
-| `GET`  | `/patties`        | List all patties   |
-| `POST` | `/patties`        | Create a patty     |
-| `GET`  | `/patties/:id`    | Get patty by ID    |
-| `PUT`  | `/patties/:id`    | Update patty       |
-| `DELETE` | `/patties/:id`  | Delete patty       |
+| Método | Endpoint          | Descrição        |
+|--------|-------------------|------------------|
+| `GET`  | `/patties`        | Listar todas as bifanas |
+| `POST` | `/patties`        | Criar uma bifana |
+| `GET`  | `/patties/:id`    | Obter bifana por ID |
+| `PUT`  | `/patties/:id`    | Atualizar bifana |
+| `DELETE` | `/patties/:id`  | Deletar bifana |
 
-**Create patty body:**
+**Corpo da criação (POST):**
 ```json
-{"nome":"Beef"}
+{"nome":"Bovina"}
 ```
 
-### Burger
+### Hambúrguer
 
-| Method | Endpoint                         | Description                        |
-|--------|----------------------------------|------------------------------------|
-| `GET`  | `/burgers`                       | List all burgers (includes cheese & patty) |
-| `POST` | `/burgers`                       | Create a new burger                |
-| `GET`  | `/burgers/:id`                   | Get burger by ID (with relations) |
-| `PUT`  | `/burgers/:id`                   | Update burger                      |
-| `DELETE` | `/burgers/:id`                 | Delete burger                      |
+| Método | Endpoint                         | Descrição                        |
+|--------|----------------------------------|----------------------------------|
+| `GET`  | `/burgers`                       | Listar todos os hambúrgueres (inclui queijo & bifana) |
+| `POST` | `/burgers`                       | Criar um novo hambúrguer         |
+| `GET`  | `/burgers/:id`                   | Obter hambúrguer por ID (com relações) |
+| `PUT`  | `/burgers/:id`                   | Atualizar hambúrguer             |
+| `DELETE` | `/burgers/:id`                 | Deletar hambúrguer               |
 
-**Create burger body:**
+**Corpo da criação (POST):**
 ```json
-{"nome":"Cheeseburger","preco":12.50,"desc":"Delicious cheeseburger","cheeseId":1,"pattyId":1}
+{"nome":"Cheeseburger","preco":12.50,"desc":"Delicioso cheeseburger","cheeseId":1,"pattyId":1}
 ```
 
-**Note:** `userId` can be sent to associate the burger with a user (1:N relationship).
+**Observação:** `userId` pode ser enviado para associar o hambúrguer a um user (relação 1:N).
 
 ## Middlewares
 
-| Middleware          | Purpose                              |
-|----------------------|--------------------------------------|
-| `verificadorId`      | Validates that `:id` params are numeric and exist |
-| `logger`             | Logs each request with timestamp, method, and path to the terminal |
+| Middleware          | Finalidade                              |
+|----------------------|-----------------------------------------|
+| `verificadorId`      | Valida que o parâmetro `:id` seja um número válido |
+| `logger`             | Registra cada requisição no terminal com carimbo de data/hora, método e caminho |
 
-The `logger` middleware outputs to the console, e.g.:
+O middleware `logger` exemplifica no terminal:
 
 ```
 [2026-11-22T14:23:45.123Z] GET /users
 ```
 
-## Postman Collection
+## Coleção Postman
 
-An exported Postman collection is included in the project: `postman_collection.json`.
-Import this file into Postman to test all endpoints with success and error scenarios.
+Uma collection Postman exportada está incluída no projeto: `postman_collection.json`.
+Importar este arquivo no Postman para testar todos os endpoints com cenários de sucesso e erro.
 
-## Git & Deployment
+## Git & Deploy
 
-- The repository uses a `.gitignore` that excludes `node_modules`, `dist`, and other build artifacts.
-- A `README.md` is provided with project documentation.
-- To push to the remote repository:
+- O repositório possui um `.gitignore` que exclui `node_modules`, `dist` e outros artefatos de build.
+- Um `README.md` com a documentação do projeto está disponível.
+- Para enviar as alterações ao repositório remoto:
 
   ```bash
   git add .
-  git commit -m "Implement CRUD and middlewares"
+  git commit -m "Implement CRUD e middlewares"
   git push origin main
   ```
 
 ---
 
-Built with **Express**, **Prisma ORM**, and **SQLite**.
+Desenvolvido com **Express**, **Prisma ORM** e **SQLite**.
