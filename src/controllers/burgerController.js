@@ -29,8 +29,8 @@ export async function createBurger(req, res) {
     try {
         const { nome, preco, desc, cheeseId, pattyId } = req.body
 
-        if (!nome || !preco) {
-            return res.status(400).json({ erro: "Nome e preco sao obrigatorios" })
+        if (!nome || !preco || cheeseId === undefined || pattyId === undefined) {
+            return res.status(400).json({ erro: "Nome, preco, cheeseId e pattyId sao obrigatorios" })
         }
 
         const newBurger = await prisma.burger.create({
@@ -38,13 +38,15 @@ export async function createBurger(req, res) {
                 nome,
                 preco: parseFloat(preco),
                 desc: desc || "",
-                cheeseId: cheeseId || null,
-                pattyId: pattyId || null
+                cheese: { connect: { id: parseInt(cheeseId) } },
+                patty: { connect: { id: parseInt(pattyId) } },
+                user: { connect: { id: 1 } }
             }
         })
 
         return res.status(201).json(newBurger)
     } catch (erro) {
+        console.error("createBurger error:", erro)
         if (erro.code == "P2003") {
             return res.status(400).json({ erro: "Id do queijo ou patty nao existe" })
         }

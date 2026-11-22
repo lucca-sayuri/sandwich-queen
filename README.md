@@ -1,7 +1,7 @@
 # API Sanduíche Queen
 
 Um backend Node.js + Express + Prisma para gerenciar o inventário de uma lanchonete.
-Este projeto fornece endpoints CRUD para as entidades **User**, **Queijo**, **Bifana** e **Hambúrguer**, com relacionamentos 1:N (User → Hambúrguer) e suporte completo a middlewares.
+Este projeto fornece endpoints CRUD para as entidades **User**, **Queijo**, **Carne** e **Hambúrguer**, com relacionamentos 1:N (User → Hambúrguer) e suporte completo a middlewares.
 
 ## Índice
 
@@ -12,7 +12,7 @@ Este projeto fornece endpoints CRUD para as entidades **User**, **Queijo**, **Bi
 - [Endpoints da API](#endpoints-da-api)
   - [User](#user-1)
   - [Queijo](#queijo)
-  - [Bifana](#bifana)
+  - [Carne](#carne)
   - [Hambúrguer](#hambúrguer)
 - [Middlewares](#middlewares-1)
 - [Coleção Postman](#coleção-postman)

@@ -33,11 +33,11 @@ model Burger {
   id       Int     @id @default(autoincrement())
   nome     String
   preco    Decimal
-  desc     String
+  desc     String?
   cheeseId Int
   pattyId  Int
   cheese   Cheese  @relation(fields: [cheeseId], references: [id])
   patty    Patty   @relation(fields: [pattyId], references: [id])
-  user     User    @relation("UserBurger", fields: [userId], references: [id])
   userId   Int
+  user     User    @relation("UserBurger", fields: [userId], references: [id])
 }
