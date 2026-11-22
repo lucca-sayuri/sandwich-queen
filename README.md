@@ -100,26 +100,26 @@ Todos os endpoints estão implicitamente prefixados com `/api/` através dos arq
 {"nome":"Muçarela"}
 ```
 
-### Bifana (Patty)
+### Carne
 
 | Método | Endpoint          | Descrição        |
 |--------|-------------------|------------------|
-| `GET`  | `/patties`        | Listar todas as bifanas |
-| `POST` | `/patties`        | Criar uma bifana |
-| `GET`  | `/patties/:id`    | Obter bifana por ID |
-| `PUT`  | `/patties/:id`    | Atualizar bifana |
-| `DELETE` | `/patties/:id`  | Deletar bifana |
+| `GET`  | `/patties`        | Listar todas as carnes |
+| `POST` | `/patties`        | Criar uma carne |
+| `GET`  | `/patties/:id`    | Obter carne por ID |
+| `PUT`  | `/patties/:id`    | Atualizar carne |
+| `DELETE` | `/patties/:id`  | Deletar carne |
 
 **Corpo da criação (POST):**
 ```json
-{"nome":"Bovina"}
+{"nome":"Res"}
 ```
 
 ### Hambúrguer
 
 | Método | Endpoint                         | Descrição                        |
 |--------|----------------------------------|----------------------------------|
-| `GET`  | `/burgers`                       | Listar todos os hambúrgueres (inclui queijo & bifana) |
+| `GET`  | `/burgers`                       | Listar todos os hambúrgueres (inclui queijo & carne) |
 | `POST` | `/burgers`                       | Criar um novo hambúrguer         |
 | `GET`  | `/burgers/:id`                   | Obter hambúrguer por ID (com relações) |
 | `PUT`  | `/burgers/:id`                   | Atualizar hambúrguer             |
