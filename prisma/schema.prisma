@@ -11,9 +11,10 @@ datasource db {
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
-  nome  String
-  email String @unique
+  id      Int      @id @default(autoincrement())
+  nome    String
+  email   String   @unique
+  burgers Burger[] @relation("UserBurger")
 }
 
 model Cheese {
@@ -37,4 +38,6 @@ model Burger {
   pattyId  Int
   cheese   Cheese  @relation(fields: [cheeseId], references: [id])
   patty    Patty   @relation(fields: [pattyId], references: [id])
+  user     User    @relation("UserBurger", fields: [userId], references: [id])
+  userId   Int
 }

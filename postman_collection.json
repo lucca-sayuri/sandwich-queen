@@ -1,0 +1,348 @@
+{
+  "info": {
+    "name": "sandwich-queen API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Get all users",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/users",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "name": "Create user",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:3000/users",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nome\":\"Joao Silva\",\"email\":\"joao@example.com\"}",
+              "format": "json"
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Get user by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/users/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "name": "Update user",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:3000/users/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nome\":\"Joao Silva Atualizado\",\"email\":\"joao.atualizado@example.com\"}",
+              "format": "json"
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete user",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:3000/users/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "response": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cheese",
+      "item": [
+        {
+          "name": "Get all cheeses",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/cheeses",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "name": "Create cheese",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:3000/cheeses",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nome\":\"Mozzarella\"}",
+              "format": "json"
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Get cheese by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/cheeses/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "name": "Update cheese",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:3000/cheeses/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nome\"=\"Cheddar\"}",
+              "format": "json"
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete cheese",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:3000/cheeses/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "response": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "Patty",
+      "item": [
+        {
+          "name": "Get all patties",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/patties",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "name": "Create patty",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:3000/patties",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nome\":\"Beef\"}",
+              "format": "json"
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Get patty by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/patties/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "name": "Update patty",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:3000/patties/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nome\":\"Beef Cooked\"}",
+              "format": "json"
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete patty",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:3000/patties/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "response": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "Burger",
+      "item": [
+        {
+          "name": "Get all burgers",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/burgers",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "name": "Create burger",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:3000/burgers",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nome\":\"Cheeseburger\",\"preco\":12.50,\"desc\":\"Delicious cheeseburger\"}",
+              "format": "json"
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Get burger by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/burgers/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "response": []
+          }
+        },
+        {
+          "name": "Update burger",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:3000/burgers/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nome\":\"Cheeseburger Atualizado\",\"preco\":13.00\"}",
+              "format": "json"
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete burger",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:3000/burgers/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "response": []
+          }
+        }
+      ]
+    }
+  ]
+}
